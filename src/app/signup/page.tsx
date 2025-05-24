@@ -28,11 +28,13 @@ export default function SignUpPage () {
 
     const onSignUp = async () => {
            try {
-            
              await axios.post("/api/users/signup",user) 
-             toast.success("user successfully created !!") 
-             router.push("/login")  
-                     
+             toast.success("Signup successful! Redirecting to login...");
+
+             setTimeout(()=>{
+                router.push("/login") 
+             },2000)
+              
            } catch (error : any) {
              toast.error(error.message);
              }
